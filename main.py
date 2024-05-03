@@ -2,7 +2,7 @@ import re
 import os
 import csv
 
-class PriceMachine():
+class PriceMachine:
 
     def __init__(self):
         self.price_list = []
@@ -50,6 +50,15 @@ class PriceMachine():
                 result.sort(key=lambda i : i[4])
                 for result_of_request in result:
                     print(result_of_request)
+
+            html = "<title>Позиции продуктов</title>\n"
+            for row in result:
+                html += "<tr>\n"
+                for column in row:
+                    html += f"<th>{column}</th>\n"
+                html += "</tr>\n"
+            with open('myFrame.html', 'a', encoding='utf-8') as html_file:
+                html_file.write(html)
 
 
 pm = PriceMachine()
