@@ -53,10 +53,10 @@ class PriceMachine:
 
             html = "<title>Позиции продуктов</title>\n"
             for row in result:
-                html += "<tr>\n"
+                html += "<table>\n<tr>\n"
                 for column in row:
                     html += f"<th>{column}</th>\n"
-                html += "</tr>\n"
+                html += "</tr>\n</table>\n"
             with open('myFrame.html', 'a', encoding='utf-8') as html_file:
                 html_file.write(html)
 
